@@ -11,7 +11,7 @@ ymp repo --update --allow-oem --ignore-gpg
 ymp it xinit xorg-server xterm freetype xauth xkbcomp xkeyboard-config @x11.drivers --no-emerge --allow-oem
 ymp it elogind shadow pipewire wireplumber libtool firefox-installer fuse fuse2 --no-emerge --allow-oem
 # install kde
-ymp it @kde.plasma @kde.frameworks seatd dolphin konsole ark dejavu tzdata --no-emerge --allow-oem --jobs=1
+ymp it @kde seatd dolphin konsole ark dejavu tzdata --no-emerge --allow-oem --jobs=1
 # fstab add tmpfs
 echo "tmpfs /tmp tmpfs rw 0 0" > /etc/fstab
 ln -s /proc/mounts /etc/mtab
@@ -25,6 +25,9 @@ echo "" >> /etc/locale.gen
 echo "export LANG=en_US.UTF-8" > /etc/profile.d/locale.sh
 echo "export LC_ALL=en_US.UTF-8" >> /etc/profile.d/locale.sh
 locale-gen
+# set timezone
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/UTC /etc/localtime
 # polkit enable
 chmod u+s /usr/bin/pkexec /usr/lib64/polkit-1/polkit-agent-helper-1
 echo "/bin/bash" > /etc/shells
