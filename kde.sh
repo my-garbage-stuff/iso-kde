@@ -51,6 +51,7 @@ rc-update add networkmanager
 rc-update add sddm
 rc-update add bluetooth
 rc-update add polkit
+rc-update add pipewire
 ymp clean --allow-oem
 # revert hardened bindir
 mkdir -p /usr/local/bin
