@@ -51,11 +51,15 @@ rc-update add networkmanager
 rc-update add sddm
 rc-update add bluetooth
 rc-update add polkit
-rc-update add pipewire
 ymp clean --allow-oem
 # revert hardened bindir
 mkdir -p /usr/local/bin
 chmod 755 /bin /usr/bin /sbin /usr/sbin /usr/local/bin
 # remove static libraries
+cat > /etc/sysconf.d/remove-static <<EOF
+#!/bin/sh
 find / -type f -iname '*.a' -exec rm -f {} \;
+EOF
+chmod 755 /etc/sysconf.d/remove-static
+/etc/sysconf.d/remove-static
 exit 0
