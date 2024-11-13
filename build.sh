@@ -25,3 +25,4 @@ for variant in kde; do
     suffix="-firmware"
     build $variant $suffix
 done
+
