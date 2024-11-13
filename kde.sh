@@ -55,7 +55,5 @@ mkdir -p /usr/local/bin
 chmod 755 /bin /usr/bin /sbin /usr/sbin /usr/local/bin
 ymp it no-static --no-emerge --allow-oem
 # remove static libraries
-chmod 755 /etc/sysconf.d/remove-static
-/etc/sysconf.d/remove-static
 ymp clean --allow-oem
 exit 0
