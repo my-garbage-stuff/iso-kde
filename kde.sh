@@ -16,8 +16,7 @@ ymp it @kde seatd dolphin konsole ark dejavu tzdata --no-emerge --allow-oem --jo
 echo "tmpfs /tmp tmpfs rw 0 0" > /etc/fstab
 ln -s /proc/mounts /etc/mtab
 # enable login from shadow
-sed -i "s|#agetty_options.*|agetty_options=\" -l /usr/bin/login\"|" /etc/conf.d/agetty
-chmod u+s /bin/su /usr/bin/su
+chmod u+s /usr/bin/su
 # set language
 mkdir -p /lib64/locale
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
